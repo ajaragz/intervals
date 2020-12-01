@@ -120,4 +120,12 @@ public class IntervalTest {
     assertTrue(outsideInterval.intersects(insideInterval));
   }
 
+  @Test
+  public void given2ClosedClosedIntervalsOnePartiallyIntersectingTheOtherThenTrue() {
+    Interval leftInterval = new IntervalBuilder().closed(left.getLess()).closed(right.getLess()).build();
+    Interval rightInterval = new IntervalBuilder().closed(left.getGreater()).closed(right.getGreater()).build();
+    assertTrue(leftInterval.intersects(rightInterval));
+    assertTrue(rightInterval.intersects(leftInterval));
+  }
+
 }
