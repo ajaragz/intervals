@@ -15,11 +15,22 @@ public class Interval {
 			return this.min.isWithin(value) && this.max.isWithin(value);
 	}
 
+	public boolean includedInBothIntervals(Interval interval, double value) {
+		if (this.include(value) && interval.include(value))
+			return true;
+		/**
+		 * TODO: Aquí falta comprobar, en caso de que esté en uno de los intervalos,
+		 *  si no es extremo del otro intervalo (OK) y si lo es,
+		 *  si dicho extremo es cerrado (OK). Si es abierto no intersecta
+		 */
+
+	}
+
 	public boolean hasAtLeastOneCommonValue(Interval interval) {
-		return this.include(interval.min.value)
-				|| this.include(interval.max.value)
-				|| interval.include(this.min.value)
-				|| interval.include(this.max.value);
+		return this.includedInBothIntervals(interval, interval.min.value)
+				|| this.includedInBothIntervals(interval, interval.max.value)
+				|| interval.includedInBothIntervals(this, this.min.value)
+				|| interval.includedInBothIntervals(this, this.max.value);
 	}
 
 	public boolean isIntersected(Interval interval) {
