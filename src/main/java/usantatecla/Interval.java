@@ -15,12 +15,15 @@ public class Interval {
 			return this.min.isWithin(value) && this.max.isWithin(value);
 	}
 
-	public boolean intersects(Interval interval) {
+	public boolean hasAtLeastOneCommonValue(Interval interval) {
 		return this.include(interval.min.value)
 				|| this.include(interval.max.value)
 				|| interval.include(this.min.value)
-				|| interval.include(this.max.value)
-				|| this.equals(interval);
+				|| interval.include(this.max.value);
+	}
+
+	public boolean intersects(Interval interval) {
+		return this.equals(interval) || this.hasAtLeastOneCommonValue(interval);
 	}
 
 	@Override
