@@ -80,4 +80,12 @@ public class IntervalTest {
     assertTrue(sameInterval.intersects(interval));
   }
 
+  @Test
+  public void given2OpenOpenIntervalsOneInsideTheOtherTestIntersectThenTrue() {
+    Interval outsideInterval = new IntervalBuilder().open(left.getLess()).open(right.getGreater()).build();
+    Interval insideInterval = new IntervalBuilder().open(left.getGreater()).open(right.getLess()).build();
+    assertTrue(insideInterval.intersects(outsideInterval));
+    assertTrue(outsideInterval.intersects(insideInterval));
+  }
+
 }
