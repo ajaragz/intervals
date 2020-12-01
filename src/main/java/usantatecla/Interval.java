@@ -16,7 +16,11 @@ public class Interval {
 	}
 
 	public boolean intersects(Interval interval) {
-		return false;
+		return this.include(interval.min.value)
+				|| this.include(interval.max.value)
+				|| interval.include(this.min.value)
+				|| interval.include(this.max.value)
+				|| this.equals(interval);
 	}
 
 	@Override
