@@ -136,4 +136,12 @@ public class IntervalTest {
     assertTrue(rightInterval.intersects(leftInterval));
   }
 
+  @Test
+  public void given2IntervalsWithACommonEndpointThatIsClosedInOneButOpenInTheOtherThenFalse() {
+    Interval leftInterval = new IntervalBuilder().closed(left.getLess()).closed(right.getEquals()).build();
+    Interval rightInterval = new IntervalBuilder().open(right.getEquals()).open(right.getGreater()).build();
+    assertFalse(leftInterval.intersects(rightInterval));
+    assertFalse(rightInterval.intersects(leftInterval));
+  }
+
 }
