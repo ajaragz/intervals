@@ -1,11 +1,9 @@
 package usantatecla;
 
-public class Min {
-
-  protected double value;
+public class Min extends Endpoint {
 
 	public Min(double value) {
-    this.value = value;
+	  super(value);
   }
 
 	public boolean isWithin(double value) {
