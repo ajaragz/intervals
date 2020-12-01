@@ -28,7 +28,7 @@ public abstract class Endpoint {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Max other = (Max) obj;
+        Endpoint other = (Endpoint) obj;
         if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
             return false;
         return true;
