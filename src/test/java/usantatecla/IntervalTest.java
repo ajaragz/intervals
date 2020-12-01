@@ -20,7 +20,7 @@ public class IntervalTest {
   }
 
   @Test
-  public void givenIntervaOpenOpenlwhenIncludeWithIncludedValueThenTrue() {
+  public void givenIntervalOpenOpenlTestEndpoints() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
     assertFalse(interval.include(left.getEquals()));
@@ -31,31 +31,29 @@ public class IntervalTest {
   }
 
   @Test
-  public void givenIntervaOpenOpenlwhenInc3ludeWithIncludedValueThenTrue() {
+  public void givenIntervalClosedOpenlTestEndpoints() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).open(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
     assertTrue(interval.include(left.getEquals()));
     assertTrue(interval.include(left.getGreater()));
-
     assertTrue(interval.include(right.getLess()));
     assertFalse(interval.include(right.getEquals()));
     assertFalse(interval.include(right.getGreater()));
   }
 
   @Test
-  public void givenIntervaOpenOpenlwhenIncludeWit3hIncludedValueThenTrue() {
+  public void givenIntervaOpenClosedTestEndpoints() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).closed(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
     assertFalse(interval.include(left.getEquals()));
     assertTrue(interval.include(left.getGreater()));
-
     assertTrue(interval.include(right.getLess()));
     assertTrue(interval.include(right.getEquals()));
     assertFalse(interval.include(right.getGreater()));
   }
 
   @Test
-  public void givenIntervaOpenOpenlwhenIncludeWithInclude5dValueThenTrue() {
+  public void givenIntervalClosedClosedTestEndpoints() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
     assertTrue(interval.include(left.getEquals()));
