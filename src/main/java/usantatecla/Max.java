@@ -1,11 +1,9 @@
 package usantatecla;
 
-public class Max {
-
-  protected double value;
+public class Max extends Endpoint {
 
   public Max(double value) {
-    this.value = value;
+    super(value);
   }
 
   public boolean isWithin(double value) {
