@@ -22,7 +22,7 @@ public class Interval {
 				|| interval.include(this.max.value);
 	}
 
-	public boolean intersects(Interval interval) {
+	public boolean isIntersected(Interval interval) {
 		return this.equals(interval) || this.hasAtLeastOneCommonValue(interval);
 	}
 
