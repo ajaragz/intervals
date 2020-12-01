@@ -96,4 +96,12 @@ public class IntervalTest {
     assertTrue(rightInterval.intersects(leftInterval));
   }
 
+  @Test
+  public void given2NonIntersectingClosedClosedIntervalsTestIntersectsThenFalse() {
+    Interval first = new IntervalBuilder().closed(left.getLess()).closed(right.getEquals()).build();
+    Interval second = new IntervalBuilder().closed(right.getGreater()).closed(right.getGreater()).build();
+    assertFalse(first.intersects(second));
+    assertFalse(second.intersects(first));
+  }
+
 }
