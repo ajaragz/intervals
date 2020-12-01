@@ -128,4 +128,12 @@ public class IntervalTest {
     assertTrue(rightInterval.intersects(leftInterval));
   }
 
+  @Test
+  public void given2ClosedClosedIntervalsWithOnlyTheEndPointIntersectedThenTrue() {
+    Interval leftInterval = new IntervalBuilder().closed(left.getLess()).closed(right.getEquals()).build();
+    Interval rightInterval = new IntervalBuilder().closed(right.getEquals()).closed(right.getGreater()).build();
+    assertTrue(leftInterval.intersects(rightInterval));
+    assertTrue(rightInterval.intersects(leftInterval));
+  }
+
 }
