@@ -72,4 +72,12 @@ public class IntervalTest {
     assertFalse(second.intersects(first));
   }
 
+  @Test
+  public void given2SameOpenOpenIntervalsTestIntersectThenTrue() {
+    Interval interval = new IntervalBuilder().open(left.getEquals()).open(right.getGreater()).build();
+    Interval sameInterval = new IntervalBuilder().open(left.getEquals()).open(right.getGreater()).build();
+    assertTrue(interval.intersects(sameInterval));
+    assertTrue(sameInterval.intersects(interval));
+  }
+
 }
